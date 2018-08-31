@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <p><%= hasil_keluarin %></p>
+    
+    <form action="/new" method="POST">
+        <select name="selectnya" id="selectnya">
+                <option value="">PILIH</option>
+            <% hasil_keluarin.forEach(function(hasil){ %>
+                <option  value="<%= hasil.name %>"><%= hasil.name %></option>
+            <% });%>
+        </select>
+            <input type="text" name="textnya" id="textnya">
+            <button id="anu">fgfgh</button>
+    </form>
+   
+
+    <script type="text/javascript">
+        var select = document.getElementById('selectnya');
+        var sinpput = document.getElementById('textnya');
+        select.addEventListener('change', function(e){
+            id = select.value;
+            console.log(id);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                   var anu = JSON.parse(this.responseText);
+                   sinpput.setAttribute("value",anu[0].description);
+                }
+            };
+            xhttp.open("GET", "http://localhost:4000/getnew/"+id, true);
+            xhttp.send(); 
+        });
+        var btn = document.getElementById('anu');
+        btn.addEventListener('click',function(e){
+            id = select.value;
+            text = sinpput.value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status ==200){
+                    console.log(thi.responseText);
+                }
+            };
+            xhttp.open("POST", "http://localhost:4000/new/", true);
+            xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhttp.send("selectnya="+id+"&textnya="+text);
+        })
+    </script>
+</body>
+</html>
