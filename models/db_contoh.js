@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var contohSchema = new mongoose.Schema({
-    
     name : String,
     description : String,
 });
