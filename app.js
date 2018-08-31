@@ -70,5 +70,5 @@ var express             = require('express')
     });
 
     app.listen(4000, function(req,res){
-        console.log("Server contoh sudah jalan");
+        console.log("Server has started");
     });
