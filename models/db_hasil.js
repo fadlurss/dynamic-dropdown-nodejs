@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var hasilSchema = new mongoose.Schema({
-        id_hasil : {
+        contoh_id : {
             type: mongoose.Schema.Types.ObjectId,
             ref : "Contoh"
         },
