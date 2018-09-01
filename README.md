@@ -8,4 +8,4 @@ This result :
 ![screenshot 2018-09-01 04 47 58](https://user-images.githubusercontent.com/30043386/44937183-3f1d6b80-ada2-11e8-93b6-5e739439f0d4.png)
 
 
-<h3>Actually is working when i'm input,but..How to input PK (Primary Key) collection A (from models/db_contoh) to collection B(models/db_hasil) as FK (Foreign Key) ?</h3>
+<p>Actually is working when i'm input,but why double post ?</p>
