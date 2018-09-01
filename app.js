@@ -13,19 +13,6 @@ var express             = require('express')
     app.use(bodyParser.urlencoded({ extended: true })); // ini harus true, nanti tidak bisa diedit
     app.use(methodOverride("_method"));
 
-    // var tambah_data = new Fruit({
-    //         name : "Grape",
-    //         description : "The grape color is purple"
-    // });
-
-    // tambah_data.save(function (err, hasil){
-    //     if(err){
-    //         console.log(err);
-    //     } else {
-    //         console.log(hasil);
-    //     }
-    // });
-
     app.get("/", function(req,res){ //form
         Fruit.find({}, function(err, keluarin){
             if(err){
@@ -51,9 +38,10 @@ var express             = require('express')
 
 
     app.post("/new/", function(req,res){ //input data
-        var selectnya = req.body.selectnya;
-        var textnya = req.body.textnya;
-        var input = {selectnya : selectnya, textnya  : textnya}; //input to db
+        var selectnya = req.body.selectnya,
+            contoh_id = req.body.contoh_id,
+            textnya = req.body.textnya,
+            input = {selectnya : selectnya, textnya  : textnya, contoh_id : contoh_id}; //input to db
         Hasil.create(input, function(err, hasilnya){ 
             if(err){
                 console.log(err);
@@ -70,5 +58,19 @@ var express             = require('express')
     });
 
     app.listen(4000, function(req,res){
-        console.log("Server has started");
+        console.log("Server contoh sudah jalan");
     });
+
+
+    // var tambah_data = new Fruit({
+    //     name : "Grape",
+    //     description : "The grape color is purple"
+    // });
+
+    // tambah_data.save(function (err, hasil){
+    //     if(err){
+    //         console.log(err);
+    //     } else {
+    //         console.log(hasil);
+    //     }
+    // });
